@@ -79,5 +79,5 @@ This project demonstrates the practical implementation of several core concepts:
 
 ## 📧 Contact
 
-For any questions or feedback, please reach out at [your-email@example.com](mailto:arpanpadhi2004@gmail.com) or create an issue in the GitHub repository.
+For any questions or feedback, please reach out at [arpanpadhi2004@gmail.com](mailto:arpanpadhi2004@gmail.com) or create an issue in the GitHub repository.
 
