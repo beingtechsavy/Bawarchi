@@ -1,6 +1,6 @@
 # 🍲 Bawarchi - Recipe App
 
-Bawarchi is a modern, stylish recipe app built using Jetpack Compose and the MVVM architecture. It seamlessly integrates with the MealDB API to fetch and display a wide variety of recipes. This project is a perfect example of the core concepts learned from Denis Pajunta, showcasing state management, UI building with Compose, and working with REST APIs.
+Bawarchi is a modern, stylish recipe app built using Jetpack Compose and the MVVM architecture. It seamlessly integrates with the MealDB API to fetch and display a wide variety of recipes. This project is a perfect example of the core concepts learned from Denis Panjuta, showcasing state management, UI building with Compose, and working with REST APIs.
 
 ## 📱 Features
 
