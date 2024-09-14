@@ -52,6 +52,7 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.core:core:1.10.0")
              // it takes care of the new screen and changes
             implementation("androidx.navigation:navigation-compose:2.7.4")
        // Network Calls

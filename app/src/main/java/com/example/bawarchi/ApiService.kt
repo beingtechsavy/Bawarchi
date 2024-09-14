@@ -9,7 +9,19 @@ private val retrofit=Retrofit.Builder().baseUrl("https://www.themealdb.com/api/j
 
                    val recipeService= retrofit.create(ApiService::class.java)
 
+
+
+
 interface ApiService{
     @GET("categories.php")
     suspend fun getCategories():CategoryResponse
+//
+//    @GET("list.php?i=list")
+//    suspend fun getIngredients():IngridientsResponse
+
+    @GET("random.php")
+    suspend fun getRandom():RandomResponse
+
+
 }
+

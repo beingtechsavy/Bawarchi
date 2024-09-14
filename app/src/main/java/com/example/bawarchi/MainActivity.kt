@@ -25,9 +25,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                                RecipeApp(navController =navcontroller )
+//                                      MainScreen(navController = navcontroller)
+
+//                    RandomScreen(modifier=Modifier)
                 }
             }
         }
     }
 }
-
