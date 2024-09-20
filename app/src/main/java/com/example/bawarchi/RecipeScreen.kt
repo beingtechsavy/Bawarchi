@@ -2,6 +2,7 @@ package com.example.bawarchi
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -20,6 +21,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.modifier.modifierLocalConsumer
@@ -33,7 +36,15 @@ import coil.compose.rememberAsyncImagePainter
 @Composable
 fun RecipeScreen(modifier: Modifier = Modifier, viewstate: MainViewModel.RecipeState ,navigatetoDetail: (Category) -> Unit) {
     
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().background(
+        brush = Brush.linearGradient(
+            colors = listOf(
+                Color(0xFFFFA726), // Light Orange
+                Color(0xFFFF5722)  // Dark Orange
+            ),
+            start = Offset(0f, 0f),
+            end = Offset(1000f, 1000f)
+        ))) {
         when {
             viewstate.isLoading -> {
                 CircularProgressIndicator(progress = 0.89f, modifier.align(Alignment.Center))

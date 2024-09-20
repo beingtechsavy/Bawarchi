@@ -12,8 +12,7 @@ class MainViewModel : ViewModel() {
     private val _CategorieState = mutableStateOf(RecipeState())
     val categorieState: State<RecipeState> = _CategorieState
 
-    private val _ingridientState = mutableStateOf(RecipeStates())
-    val ingridientState: State<RecipeStates> = _ingridientState
+  
 
     private val _randomState = mutableStateOf(RandomState())
     val randomstate: State<RandomState> = _randomState
@@ -42,8 +41,9 @@ class MainViewModel : ViewModel() {
             } catch (e: Exception) {
                 _CategorieState.value = _CategorieState.value.copy(
                     isLoading = false,
-                    error = "Error fetching Categories : ${e.message}"
+                    error = "Error fetching Categories : We will Add it Soon :) "
                 )
+
             }
         }
     }
@@ -78,11 +78,7 @@ class MainViewModel : ViewModel() {
         val error: String? = null,
     )
 
-    data class RecipeStates(
-        val isLoading: Boolean = true,
-        val list: List<Ingredients> = emptyList(),
-        val error: String? = null,
-    )
+
 
     data class RandomState(
         val isLoading: Boolean = true,

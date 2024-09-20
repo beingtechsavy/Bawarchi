@@ -29,6 +29,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -48,7 +50,15 @@ fun RandomScreen(modifier: Modifier = Modifier) {
 
     val recipeviewModel : RandomViewModel= viewModel()
     val viewstate by recipeviewModel.randomstate
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().background(
+        brush = Brush.linearGradient(
+            colors = listOf(
+                Color(0xFFFFA726), // Light Orange
+                Color(0xFFFF5722)  // Dark Orange
+            ),
+            start = Offset(0f, 0f),
+            end = Offset(1000f, 1000f)
+        ))) {
         when {
             viewstate.isLoading -> {
                 CircularProgressIndicator(progress = 0.89f, modifier.align(
@@ -119,7 +129,7 @@ fun RandomItem(randomitem: List<Random> ) {
             Color.DarkGray))) {
             Text(text = randomitem[0].strInstructions, modifier = Modifier.verticalScroll(
                 rememberScrollState()
-            ).padding(8.dp), textAlign = TextAlign.Justify)
+            ).padding(8.dp),color = Color.White, textAlign = TextAlign.Justify)
         }
     }
 }
@@ -131,7 +141,10 @@ fun YouTubeButton(youtubeLink: String) {
         val uri = Uri.parse(youtubeLink)
         val intent = Intent(Intent.ACTION_VIEW, uri)
         context.startActivity(intent)
-    }, modifier = Modifier.background(Color.Blue), shape = RoundedCornerShape(8.dp)) {
+    },colors = ButtonDefaults.buttonColors(
+        containerColor = Color(0xFF008080),
+        contentColor = Color.White
+    ), shape = RoundedCornerShape(8.dp)) {
         Text(text = " Watch on Youtube ", color = Color.White, modifier = Modifier.background(
             Color.Red))
     }
