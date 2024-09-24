@@ -37,14 +37,7 @@ import coil.compose.rememberAsyncImagePainter
 fun RecipeScreen(modifier: Modifier = Modifier, viewstate: MainViewModel.RecipeState ,navigatetoDetail: (Category) -> Unit) {
     
     Box(modifier = Modifier.fillMaxSize().background(
-        brush = Brush.linearGradient(
-            colors = listOf(
-                Color(0xFFFFA726), // Light Orange
-                Color(0xFFFF5722)  // Dark Orange
-            ),
-            start = Offset(0f, 0f),
-            end = Offset(1000f, 1000f)
-        ))) {
+        color=Color(0xFFc9a436))) {
         when {
             viewstate.isLoading -> {
                 CircularProgressIndicator(progress = 0.89f, modifier.align(Alignment.Center))
@@ -84,7 +77,7 @@ fun CategoryItem(category: Category   ,
             .padding(8.dp)
             .fillMaxSize().clickable {
                 navigatetoDetail(category)
-            }.border(border = BorderStroke(2.dp, Color.DarkGray), shape = RoundedCornerShape(8.dp)),
+            }.border(border = BorderStroke(2.dp, Color(0xFF365BC9)), shape = RoundedCornerShape(8.dp)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(

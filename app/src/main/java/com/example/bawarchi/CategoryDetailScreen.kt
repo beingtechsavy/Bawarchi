@@ -33,15 +33,8 @@ import coil.compose.rememberAsyncImagePainter
 @Composable
 fun CategoryDetail(category: Category){
     Column(modifier = Modifier.fillMaxSize().background(
-        brush = Brush.linearGradient(
-            colors = listOf(
-                Color(0xFFFFA726), // Light Orange
-                Color(0xFFFF5722)  // Dark Orange
-            ),
-            start = Offset(0f, 0f),
-            end = Offset(1000f, 1000f)
-        )), horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(text = category.strCategory, modifier = Modifier.padding(16.dp), textAlign = TextAlign.Center, fontSize = 25.sp, fontWeight = FontWeight(500))
+        color=Color(0xFFc9a436)), horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(text = category.strCategory, modifier = Modifier.padding(8.dp), textAlign = TextAlign.Center, fontSize = 25.sp, fontWeight = FontWeight(500))
         Image(
             painter = rememberAsyncImagePainter(model = category.strCategoryThumb
             ),
@@ -51,8 +44,7 @@ fun CategoryDetail(category: Category){
                 .aspectRatio(1F)  ,
 
             )
-        Box(modifier = Modifier.padding(15.dp).border(border = BorderStroke(2.dp,
-            Color.DarkGray))) {
+        Box(modifier = Modifier.padding(15.dp).border(4.dp, color = Color.Transparent)) {
             Text(text = category.strCategoryDescription, modifier = Modifier.verticalScroll(
                 rememberScrollState()).padding(8.dp), textAlign = TextAlign.Justify)
         }

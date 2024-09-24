@@ -51,14 +51,7 @@ fun RandomScreen(modifier: Modifier = Modifier) {
     val recipeviewModel : RandomViewModel= viewModel()
     val viewstate by recipeviewModel.randomstate
     Box(modifier = Modifier.fillMaxSize().background(
-        brush = Brush.linearGradient(
-            colors = listOf(
-                Color(0xFFFFA726), // Light Orange
-                Color(0xFFFF5722)  // Dark Orange
-            ),
-            start = Offset(0f, 0f),
-            end = Offset(1000f, 1000f)
-        ))) {
+        color = Color(0xFFc9a436))) {
         when {
             viewstate.isLoading -> {
                 CircularProgressIndicator(progress = 0.89f, modifier.align(
@@ -96,11 +89,7 @@ fun RandomItem(randomitem: List<Random> ) {
     Column(
         modifier = Modifier
             .padding(8.dp)
-            .fillMaxSize()
-            .border(
-                border = BorderStroke(2.dp, Color.DarkGray),
-                shape = RoundedCornerShape(8.dp)
-            ),
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
@@ -118,18 +107,18 @@ fun RandomItem(randomitem: List<Random> ) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
-            color = Color.LightGray,
-            fontSize = 20.sp,
+            color = Color.White,
+            fontSize = 24.sp,
             fontFamily = FontFamily.Monospace,
             fontWeight = FontWeight(500)       ,
             textAlign = TextAlign.Center
         )
          YouTubeButton(youtubeLink = randomitem[0].strYoutube)
         Box(modifier = Modifier.padding(15.dp).border(border = BorderStroke(2.dp,
-            Color.DarkGray))) {
+            Color.Transparent))) {
             Text(text = randomitem[0].strInstructions, modifier = Modifier.verticalScroll(
                 rememberScrollState()
-            ).padding(8.dp),color = Color.White, textAlign = TextAlign.Justify)
+            ).padding(8.dp),color = Color.LightGray, textAlign = TextAlign.Justify)
         }
     }
 }
@@ -142,10 +131,9 @@ fun YouTubeButton(youtubeLink: String) {
         val intent = Intent(Intent.ACTION_VIEW, uri)
         context.startActivity(intent)
     },colors = ButtonDefaults.buttonColors(
-        containerColor = Color(0xFF008080),
+        containerColor = Color(0xFF365BC9),
         contentColor = Color.White
     ), shape = RoundedCornerShape(8.dp)) {
-        Text(text = " Watch on Youtube ", color = Color.White, modifier = Modifier.background(
-            Color.Red))
+        Text(text = " Watch on Youtube ", color = Color.White)
     }
 }

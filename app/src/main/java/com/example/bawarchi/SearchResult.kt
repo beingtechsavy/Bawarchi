@@ -59,14 +59,7 @@ fun searchResult(modifier:Modifier=Modifier,query:String){
 
             viewstate.error != null -> {
                 Column(modifier=Modifier.fillMaxSize().background(
-                    brush = Brush.linearGradient(
-                        colors = listOf(
-                            Color(0xFFFFA726), // Light Orange
-                            Color(0xFFFF5722)  // Dark Orange
-                        ),
-                        start = Offset(0f, 0f),
-                        end = Offset(1000f, 1000f)
-                    )), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
+                   color=Color(0xFFc9a436)), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(
                         painter = painterResource(id = com.example.bawarchi.R.drawable.errormessage), // Replace with your image resource
                         contentDescription = "Error Message", // For accessibility
@@ -99,14 +92,7 @@ fun SearchItem(randomitem: List<Searchdat> ) {
                 border = BorderStroke(2.dp, Color.DarkGray),
                 shape = RoundedCornerShape(8.dp)
             ).background(
-                brush = Brush.linearGradient(
-                    colors = listOf(
-                        Color(0xFFFFA726), // Light Orange
-                        Color(0xFFFF5722)  // Dark Orange
-                    ),
-                    start = Offset(0f, 0f),
-                    end = Offset(1000f, 1000f)
-                )),
+               color=Color(0xFFc9a436)),
 
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -137,8 +123,9 @@ fun SearchItem(randomitem: List<Searchdat> ) {
             .border(
                 border = BorderStroke(
                     2.dp,
-                    Color.DarkGray
-                )
+                    Color.Transparent
+
+                ), shape = RoundedCornerShape(4.dp)
             )) {
             Text(text = randomitem[0].strInstructions, modifier = Modifier
                 .verticalScroll(

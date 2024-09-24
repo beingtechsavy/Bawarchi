@@ -130,14 +130,7 @@ fun MainScreen(navController: NavController,navigateSearch:(String) -> Unit ,nav
     Column (modifier = Modifier
         .fillMaxSize()
         .background(
-            brush = Brush.linearGradient(
-                colors = listOf(
-                    Color(0xFFFFA726), // Light Orange
-                    Color(0xFFFF5722)  // Dark Orange
-                ),
-                start = Offset(0f, 0f),
-                end = Offset(1000f, 1000f)
-            )
+            color = Color(0xFFc9a436)
         )){
         Column {
             Text(
@@ -151,31 +144,36 @@ fun MainScreen(navController: NavController,navigateSearch:(String) -> Unit ,nav
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(15.dp))
-            OutlinedTextField(
-                value = searchQuery,
-                shape = RoundedCornerShape(8.dp),
-               textStyle = TextStyle(color= Color.White, fontWeight = FontWeight(700)),
-                onValueChange = { newValue -> searchQuery = newValue },
-                label = { Text("Search for a meal") },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(10.dp),
-                colors = TextFieldDefaults.outlinedTextFieldColors(focusedBorderColor = Color(0xFF008080), focusedTrailingIconColor = Color(0xFF008080)),
-                trailingIcon = {
-                    IconButton(onClick = { /* Trigger the search */
-                        if (searchQuery.isNotBlank()) {
-                            navigateSearch(searchQuery)
-                        }
-//                        else{
-//                            Toast.makeText(context,"Blank Search",Toast.LENGTH_SHORT)
+           
+//            OutlinedTextField(
+//                value = searchQuery,
+//                shape = RoundedCornerShape(8.dp),
+//               textStyle = TextStyle(color= Color.White, fontWeight = FontWeight(700)),
+//                onValueChange = { newValue -> searchQuery = newValue },
+//                label = { Text("Search for a meal") },
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .padding(10.dp),
+//                colors = TextFieldDefaults.outlinedTextFieldColors(focusedBorderColor = Color(0xFF008080), focusedTrailingIconColor = Color(0xFF008080)),
+//                trailingIcon = {
+//                    IconButton(onClick = { /* Trigger the search */
+//                        if (searchQuery.isNotBlank()) {
+//                            navigateSearch(searchQuery)
 //                        }
-                    }) {
-                        Icon(Icons.Default.Search, contentDescription = "Search")
-                    }
-                },
-                singleLine = true
-            )
+////                        else{
+////                            Toast.makeText(context,"Blank Search",Toast.LENGTH_SHORT)
+////                        }
+//                    }) {
+//                        Icon(Icons.Default.Search, contentDescription = "Search")
+//                    }
+//                },
+//                singleLine = true
+//            )
+            
+
+
+
+
             Image(
                 painter = painterResource(id = R.drawable.thumbnail), // Replace with your image resource
                 contentDescription = "Thumbnail", // For accessibility
@@ -187,14 +185,37 @@ fun MainScreen(navController: NavController,navigateSearch:(String) -> Unit ,nav
 
         Spacer(modifier = Modifier.height(20.dp))
 
-
+        OutlinedTextField(
+            value = searchQuery,
+            shape = RoundedCornerShape(8.dp),
+            textStyle = TextStyle(color= Color.White, fontWeight = FontWeight(700)),
+            onValueChange = { newValue -> searchQuery = newValue },
+            label = { Text("Search for a meal", color = Color.White) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            colors = TextFieldDefaults.outlinedTextFieldColors(focusedBorderColor = Color(0xFF365BC9), focusedTrailingIconColor = Color(0xFF365BC9)),
+            trailingIcon = {
+                IconButton(onClick = { /* Trigger the search */
+                    if (searchQuery.isNotBlank()) {
+                        navigateSearch(searchQuery)
+                    }
+//                        else{
+//                            Toast.makeText(context,"Blank Search",Toast.LENGTH_SHORT)
+//                        }
+                }) {
+                    Icon(Icons.Default.Search, contentDescription = "Search")
+                }
+            },
+            singleLine = true
+        )
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier.fillMaxWidth()
         ) {
             Button(onClick = { navigateRecipe(Unit) },colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF008080),
+                containerColor = Color(0xFF365BC9),
                 contentColor = Color.White
             )) {
                 Text(
@@ -205,7 +226,7 @@ fun MainScreen(navController: NavController,navigateSearch:(String) -> Unit ,nav
             }
             Spacer(modifier = Modifier.height(16.dp))
             Button(onClick = { navigateRandom(Unit) }, colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF008080),
+                containerColor = Color(0xFF365BC9),
                 contentColor = Color.White
             )) {
                 
